@@ -10,4 +10,12 @@ app.get("/about", (req, res, next) => {
   res.send("This is the about route!")
 })
 
+// this matches all routes and all methods
+app.use((req, res, next) => {
+  res.status(404).send({
+    status: 404,
+    error: 'Not found'
+  })
+})
+
 app.listen(port, () => console.log(`App listening on port: ${port}`))
