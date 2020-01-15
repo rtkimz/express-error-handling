@@ -18,4 +18,10 @@ app.use((req, res, next) => {
   })
 })
 
+// error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
 app.listen(port, () => console.log(`App listening on port: ${port}`))
